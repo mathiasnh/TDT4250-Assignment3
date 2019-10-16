@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.tdt4250.2019.studyprogram:University
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.tdt4250.2019.studyprogram="https://no/tdt4250/2019/studyprogram"
+    xsi:schemaLocation="https://no/tdt4250/2019/studyprogram studyprogram.ecore"
+    name="ntnu">
+  <departments
+      name="Dept. of CS">
+    <courses
+        name="Operativsystemer"
+        credits="7.5"/>
+    <programs
+        name="MTDT">
+      <studyPlans
+          name="1">
+        <years
+            value="1">
+          <semesters>
+            <semesterCourses
+                name="O"
+                course="//@departments.1/@courses.0"/>
+            <semesterCourses
+                name="O"
+                course="//@departments.2/@courses.0"/>
+            <semesterCourses
+                type="Elective"
+                name="E"
+                course="//@departments.0/@courses.0 //@departments.1/@courses.1 //@departments.1/@courses.2"/>
+          </semesters>
+          <semesters
+              type="Spring"/>
+        </years>
+        <years
+            value="2"/>
+        <years
+            value="3"/>
+        <spesialisations>
+          <years
+              value="4">
+            <semesters/>
+            <semesters
+                type="Spring"/>
+          </years>
+        </spesialisations>
+      </studyPlans>
+      <electiveCourses
+          courses="//@departments.0/@courses.0 //@departments.1/@courses.2 //@departments.1/@courses.1"/>
+      <obligatoryCourses
+          courses="//@departments.2/@courses.0 //@departments.1/@courses.0"/>
+    </programs>
+  </departments>
+  <departments
+      name="Dept. of Maths">
+    <courses
+        name="Matte 1"
+        credits="7.5"/>
+    <courses
+        name="Matte 2"
+        credits="7.5"/>
+    <courses
+        name="Matte 3"
+        credits="7.5"/>
+  </departments>
+  <departments
+      name="IDI">
+    <courses
+        name="ITGK"
+        credits="7.5"/>
+  </departments>
+</no.tdt4250.2019.studyprogram:University>
