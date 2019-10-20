@@ -2,7 +2,7 @@
 The task for this assignment is to implement a transformation from (an instance of) the model from assignment 1 to a web page corresponding to the study program pages.
 
 ## How to run
-* Right click the `uni2TextGenerator.mtl file` in the [acceleo](no.tdt4250.ov3.studyprogram.html.acceleo) folder.
+* Right click the `uni2TextGenerator.mtl file` in the `no.tdt4250.ov3.studyprogram.html.acceleo` folder.
 * Choose Run as and Launch Acceleo Application. In Run Configuration editor, choose the mtl file, pick `/no.tdt4250.ov1.studyprogram/model/University1.xmi` as model, and `no.tdt4250.ov3.studyprogram.html` as output folder. 
 * When the process is done, view the html document in the target folder.
 
