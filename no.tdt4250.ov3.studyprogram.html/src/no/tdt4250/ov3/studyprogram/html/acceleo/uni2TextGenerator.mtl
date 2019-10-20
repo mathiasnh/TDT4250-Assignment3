@@ -26,11 +26,26 @@
 [/template]
 
 [template public generateStudyPlan(studyplan : StudyPlan)]
-	<div> 
-		<h2>Study plan</h2>
-		<h4>[studyplan.program.name/] - [studyplan.program.department.name/]</h4>
+	<style type="text/css">
+		#div {
+			margin-left: 50px;
+			margin-top: 25px;
+		}
+	</style>
+	<div id="div">
+		[if (studyplan.program.oclIsUndefined() <> false)] 
+			<h3>Specialisation - [studyplan.name/]</h3>
+		[else]			
+			<h2>[studyplan.name/]</h2>
+		[/if]
+		[if (studyplan.program.oclIsUndefined() <> true)]
+			<h4>[studyplan.program.name/] - [studyplan.program.department.name/]</h4>
+		[/if]
 		[for (year : Year | studyplan.years)]
 			[generateYear(year)/]
+		[/for]
+		[for (spec : StudyPlan | studyplan.specialisations)]
+			[generateStudyPlan(spec)/]
 		[/for]
 	</div>
 [/template]
@@ -42,7 +57,7 @@
 	</style>
 	<div>
 	    <h4 id="year">Year [year.value/]</h3>
-		<hr id="line" size="2" width="80%">
+		<hr id="line" size="2" width="60%">
 		[for (semester : Semester | year.semesters)]
 			[generateSemester(semester)/]
 		[/for]
@@ -51,21 +66,43 @@
 
 [template public generateSemester(semester : Semester)]
 	<style type="text/css">
-		#sem {margin-left: 50px;}
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		th, td {
+		  padding: 5px;
+		}
+		table {
+		  margin-bottom: 15px;
+		}
 	</style>
-	<div id="sem">
+	<div>
 		<div>[semester.type/]</div>
-		<ul>
+		<table>
+		  <col width="200">
+  		  <col width="200">
+		  <col width="200">
+          <col width="200">
+		  <tr>
+		    <th>Course code</th>
+		    <th>Course name</th> 
+		    <th>Credits</th>
+		    <th>Status</th> 
+		  </tr>
 		[for (sc : SemesterCourse | semester.semesterCourses)]
-			<li>
-				[generateCourse(sc)/]
-			</li>
+			[generateCourse(sc)/]
 		[/for]
-		</ul>
+		</table>
 	</div>
 [/template]
 
 [template public generateCourse(sc : SemesterCourse)]
-	<div>[sc.course.name/]</div>
+	<tr>
+		<td>[sc.course.code/]</td>
+		<td>[sc.course.name/]</td>
+		<td>[sc.course.credits/]</td>
+		<td>[sc.type/]</td>
+	</tr>
 [/template]
 
